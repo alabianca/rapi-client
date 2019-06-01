@@ -7,19 +7,35 @@
             <label for="schoolField">School</label>
             <input formControlName="school" id="schoolField" type="text"/>
           </div>
-          <div style="width: 40%" class="formControl">
+          <fieldset>
+            <div style="width: 40%" class="formControl inline">
+                <label for="startDate">Start Date</label>
+                <input formControlName="startDate" style="width:70%" id="startDate" type="text" [matDatepicker]="pickerStart" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStart></mat-datepicker>
+            </div>
+            <div style="width: 40%;" class="formControl inline">
+                <label for="endDate">End Date</label>
+                <input formControlName="endDate" style="width:70%" id="endDate" type="text" [matDatepicker]="pickerEnd" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </div>
+        </fieldset>
+          <div style="width: 40%" class="formControl inline">
               <label for="degree">Degree</label>
-              <input formControlName="degree" id="degree" type="text"/>
+              <input style="width: 70%" formControlName="degree" id="degree" type="text"/>
           </div>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <div style="width: 40%" class="formControl inline">
+              <label for="gpa">GPA</label>
+              <input style="width: 70%" formControlName="gpa" id="gpa" type="text"/>
+          </div>
+          
         </fieldset>
       </form>
     </div>
     <div [align]="'between'" rapi-setup-actions>
       <button class="button-outline" (click)="previous()">Previous</button>
-      <button>Next</button>
+      <button [disabled]="!educationForm.valid">Next</button>
     </div>
   </rp-setup-container>
   
