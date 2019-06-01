@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RapiToggleSwitchComponent implements OnInit {
   @Input() public checked: boolean;
-  @Output() public change = new EventEmitter<boolean>();
+  @Output() public toggle = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -15,7 +15,8 @@ export class RapiToggleSwitchComponent implements OnInit {
   }
 
   public onChange() {
-    this.change.emit(this.checked)
+    this.checked = !this.checked;
+    this.toggle.emit(this.checked)
   }
 
 }

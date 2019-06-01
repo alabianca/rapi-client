@@ -8,6 +8,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ExperienceDialogComponent implements OnInit {
   public experienceForm: FormGroup
+  public currentCompany = false;
+  public accomplishments = []
 
   constructor() {
     this.experienceForm = this.createForm()
@@ -16,10 +18,16 @@ export class ExperienceDialogComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onToggle($event) {
+    this.currentCompany = $event;
+  }
+
   private createForm(): FormGroup {
     return new FormGroup({
       company: new FormControl(null),
-      current: new FormControl(true),
+      title: new FormControl(null),
+      startDate: new FormControl(null),
+      endDate: new FormControl(null),
     })
   }
 

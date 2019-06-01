@@ -1,4 +1,4 @@
 <label class="switch">
-    <input (ngModelChange)="onChange()" [(ngModel)]="checked" type="checkbox">
+    <input (change)="onChange()" [checked]="checked" type="checkbox">
     <span class="slider round"></span>
 </label>
