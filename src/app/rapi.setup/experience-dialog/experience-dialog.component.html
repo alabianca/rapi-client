@@ -1,0 +1,17 @@
+<h4>Add Experience</h4>
+<div mat-dialog-content>
+    <form [formGroup]="experienceForm">
+        <fieldset>
+          <div style="width: 40%" class="formControl inline">
+            <label for="company">Company</label>
+            <input formControlName="company" id="company" type="text"/>
+          </div>
+          <div style="width: 40%" class="formControl inline">
+              <rapi-toggle [checked]="false"></rapi-toggle>
+          </div>
+        </fieldset>
+      </form>
+</div>
+<div mat-dialog-actions>
+  <button>Add</button>
+</div>

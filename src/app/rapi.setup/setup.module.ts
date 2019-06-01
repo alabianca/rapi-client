@@ -8,6 +8,8 @@ import { RapiSetupHeaderDirective } from './setup-container/setup-header.directi
 import { RapiSetupActionsDirective } from './setup-container/setup-actions.directive';
 import { RapiCommonModule } from '../rapi.common/rapi.common.module';
 import { EducationComponent } from './education/education.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { ExperienceDialogComponent } from './experience-dialog/experience-dialog.component';
 
 
 
@@ -19,11 +21,16 @@ import { EducationComponent } from './education/education.component';
     RapiSetupHeaderDirective,
     RapiSetupActionsDirective,
     EducationComponent,
+    ExperienceComponent,
+    ExperienceDialogComponent,
 ],
   imports: [
     CommonModule,
     RapiCommonModule,
     RapiSetupRoutingModule,
+  ],
+  entryComponents: [
+    ExperienceDialogComponent,
   ],
   providers: [],
 })

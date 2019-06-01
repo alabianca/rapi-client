@@ -1,0 +1,11 @@
+<rp-setup-container>
+    <h1 rapi-setup-header>Experience</h1>
+    <div rapi-setup-body>
+      <button class="button-small" (click)="add()">Add</button>
+    </div>
+    <div [align]="'between'" rapi-setup-actions>
+      <button class="button-outline" (click)="previous()">Previous</button>
+      <button (click)="next()" [disabled]="!experienceForm.valid">Next</button>
+    </div>
+  </rp-setup-container>
+  

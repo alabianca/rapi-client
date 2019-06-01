@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-education',
@@ -9,7 +10,8 @@ import { Location } from '@angular/common';
 })
 export class EducationComponent implements OnInit {
   public educationForm: FormGroup;
-  constructor(private location: Location) {
+
+  constructor(private location: Location, private router: Router) {
     this.educationForm = this.createForm()
   }
 
@@ -18,6 +20,10 @@ export class EducationComponent implements OnInit {
 
   public previous() {
     this.location.back()
+  }
+
+  public next() {
+    this.router.navigate(['/', 'setup', 'experience'])
   }
 
   private createForm(): FormGroup {
