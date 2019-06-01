@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 import { ExperienceDialogComponent } from '../experience-dialog/experience-dialog.component';
+import { Experience } from 'src/app/rapi.common/models/experience';
+
+const DEFAULT_CONFIG: MatDialogConfig<Experience> = {
+  width: "1000px",
+}
 
 @Component({
   selector: 'app-experienc',
@@ -10,27 +15,55 @@ import { ExperienceDialogComponent } from '../experience-dialog/experience-dialo
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-  public experienceForm: FormGroup;
+  public experiences: Experience[] = [];
 
   constructor(private location: Location, private dialogs: MatDialog) {
-    this.experienceForm = this.createForm()
+
   }
 
   ngOnInit() {
   }
 
   public add() {
-    this.dialogs.open(ExperienceDialogComponent, {
-      width: '1000px'
+    const ref = this.openExperienceModal();
+
+    ref.afterClosed().subscribe((data: Experience) => {
+      if (data) {
+        this.experiences.push(data);
+      }
     })
+  }
+
+  public edit(exp: Experience, index: number) {
+    const ref = this.openExperienceModal(exp);
+
+    ref.afterClosed().subscribe((data: Experience) => {
+
+      if (data) {
+        this.experiences[index] = data;
+      }
+      
+    })
+  }
+
+  public openExperienceModal(data?: Experience): MatDialogRef<ExperienceDialogComponent> {
+    const config = this.getDialogConfig(data);
+    return this.dialogs.open(ExperienceDialogComponent, config);
   }
 
   public previous() {
     this.location.back()
   }
 
-  private createForm(): FormGroup {
-    return new FormGroup({})
+  private getDialogConfig(data?: Experience): MatDialogConfig<Experience> {
+    if (!data) {
+      return DEFAULT_CONFIG;
+    }
+
+    return {
+      data: data,
+      ...DEFAULT_CONFIG,
+    }
   }
 
 }

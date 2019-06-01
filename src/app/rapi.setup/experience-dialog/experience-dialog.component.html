@@ -11,9 +11,9 @@
               <input formControlName="title" id="title" type="text"/>
           </div>
           <div style="width: 40%; margin-left: 10px;" class="formControl inline">
-              <rapi-toggle (toggle)="onToggle($event)" [checked]="currentCompany"></rapi-toggle>
-              <span *ngIf="currentCompany" style="font-size: 0.9em; padding: 2px; color: #62738d">I currently work at this company</span>
-              <span *ngIf="!currentCompany" style="font-size: 0.9em; padding: 2px; color: #62738d">I do not work here anymore</span>
+              <rapi-toggle (toggle)="onToggle($event)" [checked]="experience.current"></rapi-toggle>
+              <span *ngIf="experience.current" style="font-size: 0.9em; padding: 2px; color: #62738d">I currently work at this company</span>
+              <span *ngIf="!experience.current" style="font-size: 0.9em; padding: 2px; color: #62738d">I do not work here anymore</span>
 
           </div>
           <fieldset>
@@ -23,7 +23,7 @@
                   <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
                   <mat-datepicker #pickerStart></mat-datepicker>
               </div>
-              <div *ngIf="!currentCompany" style="width: 40%;" class="formControl inline">
+              <div *ngIf="!experience.current" style="width: 40%;" class="formControl inline">
                   <label for="endDate">End Date</label>
                   <input formControlName="endDate" style="width:70%" id="endDate" type="text" [matDatepicker]="pickerEnd" placeholder="Choose a date">
                   <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
@@ -38,7 +38,7 @@
       </form>
 </div>
 <div mat-dialog-actions>
-  <button>Save</button>
+  <button [disabled]="!experienceForm.valid" (click)="save()">Save</button>
 </div>
 
 <ng-template #showAccomplishments>

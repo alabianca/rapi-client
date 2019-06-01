@@ -5,6 +5,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RapiToggleSwitchComponent } from './rapi-toggle-switch/rapi-toggle-switch.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { RapiToggleSwitchComponent } from './rapi-toggle-switch/rapi-toggle-swit
     FormsModule,
     MatDatepickerModule,
     MatDialogModule,
+    MatDividerModule,
+    MatListModule,
   ],
   exports: [
       ReactiveFormsModule,
@@ -25,6 +29,8 @@ import { RapiToggleSwitchComponent } from './rapi-toggle-switch/rapi-toggle-swit
       MatDatepickerModule,
       MatDialogModule,
       RapiToggleSwitchComponent,
+      MatDividerModule,
+      MatListModule,
   ],
   providers: [],
 })

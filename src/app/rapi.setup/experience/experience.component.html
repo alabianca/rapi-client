@@ -1,11 +1,27 @@
 <rp-setup-container>
     <h1 rapi-setup-header>Experience</h1>
     <div rapi-setup-body>
+      <div style="margin-bottom: 20px;" *ngIf="experiences.length > 0">
+        <mat-list>
+            <div *ngFor="let exp of experiences; index as i">
+              <mat-list-item>
+                <div style="display: flex; justify-content: space-between; width: 100%;">
+                  <div>
+                    <span>{{exp.company}}:</span>
+                    <span style="font-size: 0.8em; color:#62738d;">({{exp.title}})</span>
+                  </div>
+                  <button (click)="edit(exp, i)" class="button-outline button-small">Edit</button>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </div>
+            </mat-list>
+      </div>
       <button class="button-small" (click)="add()">Add</button>
     </div>
     <div [align]="'between'" rapi-setup-actions>
       <button class="button-outline" (click)="previous()">Previous</button>
-      <button (click)="next()" [disabled]="!experienceForm.valid">Next</button>
+      <button (click)="next()">Next</button>
     </div>
   </rp-setup-container>
   
