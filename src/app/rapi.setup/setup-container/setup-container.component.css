@@ -1,0 +1,14 @@
+.setup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.setup-align-left {
+    text-align: left
+}
+
+.setup-actions div {
+    /* display: flex;
+    flex-direction: row; */
+    width: 100%;
+}

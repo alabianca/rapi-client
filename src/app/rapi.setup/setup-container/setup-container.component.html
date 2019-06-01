@@ -1,0 +1,11 @@
+<div [style.minHeight.px]="minHeight" class="setup-container container">
+  <div class="setup-align-left">
+    <ng-content select="[rapi-setup-header]"></ng-content>
+  </div>
+  <div [ngStyle]="{'flexBasis': 2*(minHeight/3)+'px'}">
+    <ng-content select="[rapi-setup-body]"></ng-content>
+  </div>
+  <div class="setup-actions">
+    <ng-content select="[rapi-setup-actions]"></ng-content>
+  </div>
+</div>
