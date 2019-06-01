@@ -1,10 +1,24 @@
 <rp-setup-container>
   <h1 rapi-setup-header>Personal</h1>
   <div rapi-setup-body>
-    Heyyy
+    <form [formGroup]="personalForm">
+      <fieldset>
+        <div style="width: 40%" class="formControl">
+          <label for="fnameField">First Name</label>
+          <input formControlName="fname" id="fnameField" type="text"/>
+        </div>
+        <div style="width: 40%" class="formControl">
+          <label for="lnameField">Last Name</label>
+          <input formControlName="lname" id="lnameField" type="text"/>
+        </div>
+        <div class="formControl">
+          <label for="objective"></label>
+          <textarea formControlName="objective" name="objective" id="objective" cols="30" rows="10"></textarea>
+        </div>
+      </fieldset>
+    </form>
   </div>
-  <div [align]="'between'" rapi-setup-actions>
-    <button>Previous</button>
-    <button>Next</button>
+  <div rapi-setup-actions>
+    <button (click)="next()" [disabled]="!personalForm.valid">Next</button>
   </div>
 </rp-setup-container>

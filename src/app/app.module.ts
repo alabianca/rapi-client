@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { RapiSetupModule } from './rapi.setup/setup.module';
+import { RapiCommonModule } from './rapi.common/rapi.common.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RapiSetupModule } from './rapi.setup/setup.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RapiCommonModule,
     RapiSetupModule,
   ],
   providers: [],
