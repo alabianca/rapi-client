@@ -1,3 +1,25 @@
-<p>
-  education works!
-</p>
+<rp-setup-container>
+    <h1 rapi-setup-header>Education</h1>
+    <div rapi-setup-body>
+      <form [formGroup]="educationForm">
+        <fieldset>
+          <div style="width: 40%" class="formControl">
+            <label for="schoolField">School</label>
+            <input formControlName="school" id="schoolField" type="text"/>
+          </div>
+          <div style="width: 40%" class="formControl">
+              <label for="degree">Degree</label>
+              <input formControlName="degree" id="degree" type="text"/>
+          </div>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </fieldset>
+      </form>
+    </div>
+    <div [align]="'between'" rapi-setup-actions>
+      <button class="button-outline" (click)="previous()">Previous</button>
+      <button>Next</button>
+    </div>
+  </rp-setup-container>
+  

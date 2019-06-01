@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { RapiSetupModule } from './rapi.setup/setup.module';
 import { RapiCommonModule } from './rapi.common/rapi.common.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RapiCommonModule } from './rapi.common/rapi.common.module';
     AppRoutingModule,
     RapiCommonModule,
     RapiSetupModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

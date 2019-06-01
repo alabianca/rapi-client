@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "node_modules/milligram/dist/milligram.min.css",
               "src/styles.css"
             ],
