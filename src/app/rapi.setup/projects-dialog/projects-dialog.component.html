@@ -1,0 +1,16 @@
+<h4>Add Project</h4>
+<div mat-dialog-content>
+  <form [formGroup]="projectForm">
+      <div style="width: 40%" class="formControl">
+        <label for="title">Title</label>
+        <input formControlName="title" id="title" type="text"/>
+      </div>
+      <div style="width: 40%" class="formControl">
+        <label for="detail">Detail</label>
+        <textarea formControlName="detail" name="detail" id="detail" cols="30" rows="10"></textarea>
+      </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button (click)="save()" [disabled]="!projectForm.valid">Save</button>
+</div>

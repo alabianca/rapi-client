@@ -1,16 +1,15 @@
 <rp-setup-container>
-    <h1 rapi-setup-header>Work Experience</h1>
+    <h1 rapi-setup-header>Projects</h1>
     <div rapi-setup-body>
-      <div style="margin-bottom: 20px;" *ngIf="experiences.length > 0">
+      <div style="margin-bottom: 20px;" *ngIf="projects.length > 0">
         <mat-list>
-            <div *ngFor="let exp of experiences; index as i">
+            <div *ngFor="let proj of projects; index as i">
               <mat-list-item>
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                   <div>
-                    <span>{{exp.company}}:</span>
-                    <span style="font-size: 0.8em; color:#62738d;">({{exp.title}})</span>
+                    <span>{{proj.title}}</span>
                   </div>
-                  <button (click)="edit(exp, i)" class="button-outline button-small">Edit</button>
+                  <button (click)="edit(proj, i)" class="button-outline button-small">Edit</button>
                 </div>
               </mat-list-item>
               <mat-divider></mat-divider>

@@ -10,6 +10,8 @@ import { RapiCommonModule } from '../rapi.common/rapi.common.module';
 import { EducationComponent } from './education/education.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ExperienceDialogComponent } from './experience-dialog/experience-dialog.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
 
 
 
@@ -23,6 +25,8 @@ import { ExperienceDialogComponent } from './experience-dialog/experience-dialog
     EducationComponent,
     ExperienceComponent,
     ExperienceDialogComponent,
+    ProjectsComponent,
+    ProjectsDialogComponent,
 ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { ExperienceDialogComponent } from './experience-dialog/experience-dialog
   ],
   entryComponents: [
     ExperienceDialogComponent,
+    ProjectsDialogComponent,
   ],
   providers: [],
 })

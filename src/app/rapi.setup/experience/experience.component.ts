@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 import { ExperienceDialogComponent } from '../experience-dialog/experience-dialog.component';
 import { Experience } from 'src/app/rapi.common/models/experience';
+import { Router } from '@angular/router';
 
 const DEFAULT_CONFIG: MatDialogConfig<Experience> = {
   width: "1000px",
@@ -17,7 +18,10 @@ const DEFAULT_CONFIG: MatDialogConfig<Experience> = {
 export class ExperienceComponent implements OnInit {
   public experiences: Experience[] = [];
 
-  constructor(private location: Location, private dialogs: MatDialog) {
+  constructor(
+    private location: Location,
+    private dialogs: MatDialog,
+    private router: Router,) {
 
   }
 
@@ -53,6 +57,10 @@ export class ExperienceComponent implements OnInit {
 
   public previous() {
     this.location.back()
+  }
+
+  public next() {
+    this.router.navigate(['/', 'setup', 'projects'])
   }
 
   private getDialogConfig(data?: Experience): MatDialogConfig<Experience> {
