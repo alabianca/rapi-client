@@ -1,0 +1,18 @@
+:host {
+    margin: 2px;
+}
+
+.chip {
+    display: inline-block;
+    background-color: #eef1f6;
+    color: #56667d;
+    border: 1px solid #cfd7e6;
+    border-radius: 2px;
+    padding: 1px 5px 1px 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.chip .value {
+    margin-right: 10px;
+}

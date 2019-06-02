@@ -12,6 +12,7 @@ import { ExperienceComponent } from './experience/experience.component';
 import { ExperienceDialogComponent } from './experience-dialog/experience-dialog.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 
@@ -27,6 +28,7 @@ import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.compo
     ExperienceDialogComponent,
     ProjectsComponent,
     ProjectsDialogComponent,
+    SkillsComponent,
 ],
   imports: [
     CommonModule,

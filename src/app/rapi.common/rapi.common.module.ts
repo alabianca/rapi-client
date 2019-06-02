@@ -7,11 +7,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RapiToggleSwitchComponent } from './rapi-toggle-switch/rapi-toggle-switch.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { ChipComponent } from './chip/chip.component';
 
 
 @NgModule({
   declarations: [
-    RapiToggleSwitchComponent
+    RapiToggleSwitchComponent,
+    ChipComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import {MatListModule} from '@angular/material/list';
       RapiToggleSwitchComponent,
       MatDividerModule,
       MatListModule,
+      ChipComponent,
   ],
   providers: [],
 })
