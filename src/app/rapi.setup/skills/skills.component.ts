@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-skills',
@@ -8,7 +9,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class SkillsComponent implements OnInit {
   public currentSkill: string = ""
   public skills: string[] = []
-  constructor() { }
+
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,10 @@ export class SkillsComponent implements OnInit {
     this.skills.push(this.currentSkill);
     this.currentSkill = ""
 
+  }
+
+  public previous() {
+    this.location.back()
   }
 
   public remove(index: number) {
