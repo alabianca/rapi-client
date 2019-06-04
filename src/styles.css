@@ -19,6 +19,11 @@ body {
     padding: 0 1.5rem;
 }
 
+button {
+    background-color: #a16eff;
+    border-color: #a16eff
+}
+
 button:hover {
     background-color: rgba(155, 77, 202, 0.85);
     border-color: rgba(155, 77, 202, 0.85);
