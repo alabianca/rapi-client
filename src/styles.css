@@ -28,3 +28,8 @@ button:hover {
     background-color: rgba(155, 77, 202, 0.85);
     border-color: rgba(155, 77, 202, 0.85);
 }
+
+.purple-background {
+    background-image: linear-gradient(to bottom,#654a86,#534292);
+    background-color: #534292;
+}
