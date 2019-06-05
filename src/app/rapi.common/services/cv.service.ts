@@ -18,6 +18,10 @@ export class CVService {
     this.persist(this.cv);
   }
 
+  public getPersonal(): Personal {
+    return this.cv.personal;
+  }
+
   public setEducation(education: Education) {
     this.cv.education = education;
     this.persist(this.cv);
@@ -28,14 +32,26 @@ export class CVService {
     this.persist(this.cv);
   }
 
+  public getEducation(): Education {
+    return this.cv.education;
+  }
+
   public setExperiences(experiences: Experience[]) {
     this.cv.experience = experiences;
     this.persist(this.cv);
   }
 
+  public getExperience(): Experience[] {
+    return this.cv.experience;
+  }
+
   public addProject(project: Project) {
     this.cv.projects.push(project);
     this.persist(this.cv);
+  }
+
+  public getProjects(): Project[] {
+    return this.cv.projects;
   }
 
   public setProjects(projects: Project[]) {
@@ -51,6 +67,10 @@ export class CVService {
   public setSkills(skills: string[]) {
     this.cv.skills = skills;
     this.persist(this.cv);
+  }
+
+  public getSkills(): string[] {
+    return this.cv.skills
   }
 
   private loadFromLocalStroage(): CV {

@@ -11,9 +11,11 @@ import { Personal } from 'src/app/rapi.common/models/cv';
 })
 export class PersonalComponent implements OnInit {
   public personalForm: FormGroup;
+  public personal: Personal;
 
   constructor(private router: Router, private cv: CVService) {
-    this.personalForm = this.createForm()
+    this.personal = this.cv.getPersonal();
+    this.personalForm = this.createForm();
   }
 
   ngOnInit() {
@@ -32,9 +34,9 @@ export class PersonalComponent implements OnInit {
 
   private createForm(): FormGroup {
     return new FormGroup({
-      fname: new FormControl(null, [Validators.required]),
-      lname: new FormControl(null, [Validators.required]),
-      objective: new FormControl(null)
+      fname: new FormControl(this.personal.firstname, [Validators.required]),
+      lname: new FormControl(this.personal.lastname, [Validators.required]),
+      objective: new FormControl(this.personal.objective)
     })
   }
 

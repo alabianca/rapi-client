@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
   public projects: Project[] = [];
 
   constructor(private location: Location, private dialogs: MatDialog, private router: Router, private cv: CVService) {
-
+    this.projects = this.cv.getProjects();
   }
 
   ngOnInit() {

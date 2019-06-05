@@ -12,9 +12,11 @@ import { Education } from 'src/app/rapi.common/models/cv';
 })
 export class EducationComponent implements OnInit {
   public educationForm: FormGroup;
+  public education: Education;
 
   constructor(private location: Location, private router: Router, private cv: CVService) {
-    this.educationForm = this.createForm()
+    this.education = this.cv.getEducation();
+    this.educationForm = this.createForm();
   }
 
   ngOnInit() {
@@ -31,11 +33,11 @@ export class EducationComponent implements OnInit {
 
   private createForm(): FormGroup {
     return new FormGroup({
-      school: new FormControl(null),
-      degree: new FormControl(null),
-      startDate: new FormControl(null),
-      endDate: new FormControl(null),
-      gpa: new FormControl(0.0, [Validators.pattern('[0-9]*\.[0-9]*')])
+      school: new FormControl(this.education.school),
+      degree: new FormControl(this.education.degree),
+      startDate: new FormControl(this.education.fromDate),
+      endDate: new FormControl(this.education.toDate),
+      gpa: new FormControl(this.education.gpa, [Validators.pattern('[0-9]*\.[0-9]*')])
     })
   }
 

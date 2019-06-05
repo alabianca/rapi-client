@@ -11,7 +11,9 @@ export class SkillsComponent implements OnInit {
   public currentSkill: string = ""
   public skills: string[] = []
 
-  constructor(private location: Location, private cv: CVService) { }
+  constructor(private location: Location, private cv: CVService) {
+    this.skills = this.cv.getSkills()
+  }
 
   ngOnInit() {
   }

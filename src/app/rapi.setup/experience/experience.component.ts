@@ -25,6 +25,7 @@ export class ExperienceComponent implements OnInit {
     private router: Router,
     private cv: CVService,) {
 
+      this.experiences = this.cv.getExperience();
   }
 
   ngOnInit() {
