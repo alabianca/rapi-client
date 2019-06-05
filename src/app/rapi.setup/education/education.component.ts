@@ -28,7 +28,7 @@ export class EducationComponent implements OnInit {
 
   public next() {
     this.persist()
-    this.router.navigate(['/', 'setup', 'experience'])
+    this.router.navigate(['/', 'home', 'setup', 'experience'])
   }
 
   private createForm(): FormGroup {

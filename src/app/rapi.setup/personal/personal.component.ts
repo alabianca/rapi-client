@@ -29,7 +29,7 @@ export class PersonalComponent implements OnInit {
     }
     
     this.cv.setPersonal(personal)
-    this.router.navigate(['/', 'setup', 'education'])
+    this.router.navigate(['/', 'home','setup', 'education'])
   }
 
   private createForm(): FormGroup {

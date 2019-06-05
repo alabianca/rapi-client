@@ -58,7 +58,7 @@ export class ProjectsComponent implements OnInit {
 
   public next() {
     this.cv.setProjects(this.projects)
-    this.router.navigate(['/', 'setup', 'skills'])
+    this.router.navigate(['/', 'home', 'setup', 'skills'])
   }
 
   private getDialogConfig(data?: Project): MatDialogConfig<Project> {

@@ -1,0 +1,26 @@
+.main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.main .row {
+    height: 100%
+}
+
+.view {
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+
+.side-bar {
+    height: 100%;
+    width: 30%;
+    float: right;
+}
+
+.purple-background {
+    background-image: linear-gradient(to bottom,#654a86,#534292);
+    background-color: #534292;
+}

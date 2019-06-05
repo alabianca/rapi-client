@@ -33,7 +33,7 @@ import { SkillsComponent } from './skills/skills.component';
   imports: [
     CommonModule,
     RapiCommonModule,
-    RapiSetupRoutingModule,
+    //RapiSetupRoutingModule,
   ],
   entryComponents: [
     ExperienceDialogComponent,

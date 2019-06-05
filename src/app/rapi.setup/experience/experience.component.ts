@@ -64,7 +64,7 @@ export class ExperienceComponent implements OnInit {
 
   public next() {
     this.cv.setExperiences(this.experiences)
-    this.router.navigate(['/', 'setup', 'projects'])
+    this.router.navigate(['/', 'home', 'setup', 'projects'])
   }
 
   private getDialogConfig(data?: Experience): MatDialogConfig<Experience> {
