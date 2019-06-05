@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Location } from '@angular/common'
+import { CVService } from 'src/app/rapi.common/services/cv.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,7 +11,7 @@ export class SkillsComponent implements OnInit {
   public currentSkill: string = ""
   public skills: string[] = []
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private cv: CVService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,10 @@ export class SkillsComponent implements OnInit {
 
   public previous() {
     this.location.back()
+  }
+
+  public submit() {
+    this.cv.setSkills(this.skills)
   }
 
   public remove(index: number) {

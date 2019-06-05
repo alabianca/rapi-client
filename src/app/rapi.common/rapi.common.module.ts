@@ -8,6 +8,7 @@ import { RapiToggleSwitchComponent } from './rapi-toggle-switch/rapi-toggle-swit
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { ChipComponent } from './chip/chip.component';
+import { CVService } from './services/cv.service';
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import { ChipComponent } from './chip/chip.component';
       MatListModule,
       ChipComponent,
   ],
-  providers: [],
+  providers: [
+    CVService,
+  ]
 })
 export class RapiCommonModule { }

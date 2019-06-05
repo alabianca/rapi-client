@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { RapiSetupModule } from './rapi.setup/setup.module';
 import { RapiCommonModule } from './rapi.common/rapi.common.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CVService } from './rapi.common/services/cv.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RapiSetupModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CVService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

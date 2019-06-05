@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Project } from 'src/app/rapi.common/models/project';
 import { ProjectsDialogComponent } from '../projects-dialog/projects-dialog.component';
 import { Router } from '@angular/router';
+import { CVService } from 'src/app/rapi.common/services/cv.service';
 
 const DEFAULT_CONFIG: MatDialogConfig<Project> = {
   width: "1000px",
@@ -17,7 +18,7 @@ const DEFAULT_CONFIG: MatDialogConfig<Project> = {
 export class ProjectsComponent implements OnInit {
   public projects: Project[] = [];
 
-  constructor(private location: Location, private dialogs: MatDialog, private router: Router) {
+  constructor(private location: Location, private dialogs: MatDialog, private router: Router, private cv: CVService) {
 
   }
 
@@ -56,6 +57,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   public next() {
+    this.cv.setProjects(this.projects)
     this.router.navigate(['/', 'setup', 'skills'])
   }
 

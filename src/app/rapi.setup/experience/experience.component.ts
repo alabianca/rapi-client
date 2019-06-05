@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dial
 import { ExperienceDialogComponent } from '../experience-dialog/experience-dialog.component';
 import { Experience } from 'src/app/rapi.common/models/experience';
 import { Router } from '@angular/router';
+import { CVService } from 'src/app/rapi.common/services/cv.service';
 
 const DEFAULT_CONFIG: MatDialogConfig<Experience> = {
   width: "1000px",
@@ -21,7 +22,8 @@ export class ExperienceComponent implements OnInit {
   constructor(
     private location: Location,
     private dialogs: MatDialog,
-    private router: Router,) {
+    private router: Router,
+    private cv: CVService,) {
 
   }
 
@@ -60,6 +62,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   public next() {
+    this.cv.setExperiences(this.experiences)
     this.router.navigate(['/', 'setup', 'projects'])
   }
 
