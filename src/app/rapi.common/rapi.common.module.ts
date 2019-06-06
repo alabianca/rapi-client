@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import { ChipComponent } from './chip/chip.component';
 import { CVService } from './services/cv.service';
 import {MatIconModule} from '@angular/material/icon';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatDividerModule,
     MatListModule,
     MatIconModule,
+    MatStepperModule,
   ],
   exports: [
       ReactiveFormsModule,
@@ -37,6 +39,7 @@ import {MatIconModule} from '@angular/material/icon';
       MatListModule,
       ChipComponent,
       MatIconModule,
+      MatStepperModule,
   ],
   providers: [
     CVService,

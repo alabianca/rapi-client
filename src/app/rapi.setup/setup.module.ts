@@ -15,7 +15,6 @@ import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.compo
 import { SkillsComponent } from './skills/skills.component';
 
 
-
 @NgModule({
   declarations: [
     PersonalComponent,
