@@ -2,9 +2,15 @@
     margin: 0 10px 0 10px;
     display: inline-block;
     height: 30px;
+    color: #62738d;
+    font-size: 0.9em;
+}
+
+#main-nav a:hover {
+    border-bottom: 1.1px solid rgba(98, 115, 141, 0.3)
 }
 
 #main-nav a.active {
     color: #9b4dca;
-    border-bottom: 1px solid #9b4dca;
+    border-bottom: 1.1px solid #9b4dca;
 }

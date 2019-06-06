@@ -1,0 +1,8 @@
+<div>
+  <form [formGroup]="loginForm" (submit)="login($event)">
+    <h3>Sign In</h3>
+    <input name="email" formControlName="email" placeholder="Email" type="text"/>
+    <input name="password" formControlName="password" type="password">
+    <button [disabled]="!loginForm.valid" class="button-outline" id="login-btn">Log In</button>
+  </form>
+</div>
