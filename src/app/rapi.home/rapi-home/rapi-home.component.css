@@ -18,4 +18,11 @@
     height: 100%;
     width: 30%;
     float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.side-bar h3 {
+    color: white;
+    font-weight: 400;
 }

@@ -9,7 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { ChipComponent } from './chip/chip.component';
 import { CVService } from './services/cv.service';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { CVService } from './services/cv.service';
     MatDialogModule,
     MatDividerModule,
     MatListModule,
+    MatIconModule,
   ],
   exports: [
       ReactiveFormsModule,
@@ -35,6 +36,7 @@ import { CVService } from './services/cv.service';
       MatDividerModule,
       MatListModule,
       ChipComponent,
+      MatIconModule,
   ],
   providers: [
     CVService,
