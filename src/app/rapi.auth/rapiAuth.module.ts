@@ -5,6 +5,10 @@ import { RouterModule, Route } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RapiCommonModule} from '../rapi.common/rapi.common.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NoopInterceptor } from '@angular/common/http/src/interceptor';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthService } from './services/auth.service';
 
 const routes: Route[] = [
   {
@@ -23,12 +27,24 @@ const routes: Route[] = [
   },
 ]
 
+const interceptors = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }
+]
+
 @NgModule({
   declarations: [AuthComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RapiCommonModule,
     RouterModule.forChild(routes),
+  ],
+  providers: [
+    ...interceptors,
+    AuthService,
   ]
 })
 export class RapiAuthModule { }
