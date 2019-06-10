@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { flatMap } from 'rxjs/operators'
+import { TokenInfo } from '../models/tokenInfo';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +22,19 @@ export class LoginComponent implements OnInit {
 
   public login($event) {
     this.auth.authenticate(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
-      .subscribe((res) => {
-        console.log(res);
-      })
-    this.router.navigate(['/', 'home'])
+      .pipe(
+        flatMap((res: TokenInfo) => {
+          return this.auth.login(res.userId);
+        })
+      )
+      .subscribe(
+        (res) => {
+          console.log("Success Login", res);
+          this.router.navigate(['/', 'home'])
+        },
+        (err) => console.log(err),
+      )
+    
   }
 
   private createForm(): FormGroup {
