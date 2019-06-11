@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { flatMap } from 'rxjs/operators'
+import { flatMap } from 'rxjs/operators';
 import { TokenInfo } from '../models/tokenInfo';
 
 @Component({
@@ -12,12 +12,15 @@ import { TokenInfo } from '../models/tokenInfo';
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
+  @ViewChild('email') public emailField: ElementRef;
 
   constructor(private router: Router, private auth: AuthService) {
     this.loginForm = this.createForm();
   }
 
   public ngOnInit() {
+    const element: HTMLInputElement = this.emailField.nativeElement;
+    element.focus();
   }
 
   public login($event) {
@@ -29,19 +32,18 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(
         (res) => {
-          console.log("Success Login", res);
-          this.router.navigate(['/', 'home'])
+          this.router.navigate(['/', 'home']);
         },
         (err) => console.log(err),
-      )
-    
+      );
+
   }
 
   private createForm(): FormGroup {
     return new FormGroup({
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-    })
+    });
   }
 
 }

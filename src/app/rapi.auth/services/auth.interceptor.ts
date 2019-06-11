@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
         const token = this.authService.getToken();
 
         if (!token) {
-            return next.handle(req)
+            return next.handle(req);
         }
 
         req = req.clone({
@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
             },
         });
 
-        return next.handle(req)
+        return next.handle(req);
     }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import { map } from "rxjs/operators"
+import { map } from "rxjs/operators";
 import { APIResponse } from "src/app/rapi.common/models/apiResponse";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
@@ -21,7 +21,7 @@ export class AuthService {
         const body = {
             "email": email,
             "password": password
-        }
+        };
 
         const url = `${this.baseUrl}/v1/api/token`;
 
@@ -31,20 +31,31 @@ export class AuthService {
                     this.setToken(res.data);
                     return res.data;
                 })
-            )
+            );
     }
 
     public login(userId: string): Observable<User> {
 
         const url = `${this.baseUrl}/v1/api/user/${userId}`;
 
-        return this.http.get(url).pipe(map((res: APIResponse) => res.data))
+        return this.http.get(url).pipe(map((res: APIResponse) => res.data));
+    }
+
+    public register(email: string, password: string, verify: string): Observable<User> {
+        const url = `${this.baseUrl}/v1/api/user`;
+        const body = {
+            email,
+            password,
+            verify,
+        };
+
+        return this.http.post(url, body).pipe((map((res: APIResponse) => res.data)));
+
     }
 
     public setToken(tokenInfo: TokenInfo) {
         this.tokenInfo = tokenInfo;
-        
-        localStorage.setItem("token", JSON.stringify(this.tokenInfo))
+        localStorage.setItem("token", JSON.stringify(this.tokenInfo));
     }
 
     public getToken(): TokenInfo {

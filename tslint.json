@@ -6,6 +6,7 @@
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
+    "quotemark": false,
     "comment-format": [
       true,
       "check-space"
@@ -84,10 +85,6 @@
       "check-whitespace"
     ],
     "prefer-const": true,
-    "quotemark": [
-      true,
-      "single"
-    ],
     "radix": true,
     "semicolon": [
       true,

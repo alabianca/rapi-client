@@ -1,0 +1,20 @@
+#reg-btn {
+    width: 200px;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.between {
+    justify-content: space-between;
+}
+
+.center {
+    text-align: center;
+}

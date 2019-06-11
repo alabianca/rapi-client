@@ -1,3 +1,16 @@
-<p>
-  register works!
-</p>
+<div style="height: 100%;">
+  <form style="height: 300px; margin: 0;" class="flex column between" [formGroup]="registerForm" (submit)="register($event)">
+    <div>
+      <h3>Register</h3>
+      <input #email name="email" formControlName="email" placeholder="Email" type="text" />
+      <input placeholder="Password" name="password" formControlName="password" type="password">
+      <input placeholder="Verify Password" name="verify" formControlName="verify" type="password">
+    </div>
+    <div class="center">
+      <button [disabled]="!registerForm.valid" class="button-outline" id="reg-btn">Create Account</button>
+    </div>
+    <div class="center">
+      <a routerLink="/auth/login">Login</a> | <a>Forgot Passoword?</a>
+    </div>
+  </form>
+</div>
