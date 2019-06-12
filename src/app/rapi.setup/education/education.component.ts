@@ -47,7 +47,7 @@ export class EducationComponent implements OnInit {
       degree: this.educationForm.controls.degree.value,
       fromDate: this.educationForm.controls.startDate.value,
       toDate: this.educationForm.controls.endDate.value,
-      gpa: this.educationForm.controls.gpa.value,
+      gpa: parseFloat(this.educationForm.controls.gpa.value),
     }
 
     this.cv.setEducation(education);

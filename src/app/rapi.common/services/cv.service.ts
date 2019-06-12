@@ -3,15 +3,21 @@ import { CV, DEFAULT_CV, Personal, Education } from '../models/cv';
 import { Experience } from '../models/experience';
 import { Project } from '../models/project';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators'
+import { APIResponse } from '../models/apiResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CVService {
   private cv: CV = DEFAULT_CV;
+  private baseURL = environment.baseUrl;
+
   public $cv = new BehaviorSubject<CV>(this.cv);
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.cv = this.loadFromLocalStroage()
   }
 
@@ -80,6 +86,14 @@ export class CVService {
 
   public getSkills(): string[] {
     return this.cv.skills
+  }
+
+  public submit() {
+    const url = `${this.baseURL}/v1/api/resume`
+    return this.http.post(url, this.cv)
+            .pipe(
+              map((res: APIResponse) => res.data)
+            )
   }
 
   private publish() {

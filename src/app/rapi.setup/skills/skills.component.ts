@@ -34,7 +34,10 @@ export class SkillsComponent implements OnInit {
   }
 
   public submit() {
-    this.cv.setSkills(this.skills)
+    this.cv.setSkills(this.skills);
+    this.cv.submit().subscribe((res) => {
+      console.log(res);
+    })
   }
 
   public remove(index: number) {
