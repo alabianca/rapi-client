@@ -95,17 +95,17 @@ export class CVService {
     return this.http.post(url, this.cv)
             .pipe(
               map((res: APIResponse) => res.data),
-              flatMap((val: URLRecord) => this.saveURLRecord(val.url, userId))
+              flatMap((val: URLRecord) => this.saveURLRecord(val.id, userId))
             )
   }
 
-  public saveURLRecord(_url: string, userId: string) {
+  public saveURLRecord(id: string, userId: string) {
     const url = `${this.baseURL}/v1/api/user/${userId}`;
     const body: URLRecord = {
-      url: _url,
-    }
+      id: id,
+    };
 
-    return this.http.post(url, body)
+    return this.http.post(url, body);
 
   }
 
