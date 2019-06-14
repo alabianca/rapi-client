@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Location } from '@angular/common'
 import { CVService } from 'src/app/rapi.common/services/cv.service';
+import { AuthService } from 'src/app/rapi.auth/services/auth.service';
 
 @Component({
   selector: 'app-skills',
@@ -11,7 +12,7 @@ export class SkillsComponent implements OnInit {
   public currentSkill: string = ""
   public skills: string[] = []
 
-  constructor(private location: Location, private cv: CVService) {
+  constructor(private location: Location, private cv: CVService, private authService: AuthService) {
     this.skills = this.cv.getSkills()
   }
 
@@ -34,8 +35,9 @@ export class SkillsComponent implements OnInit {
   }
 
   public submit() {
+    const userId = this.authService.getUserId();
     this.cv.setSkills(this.skills);
-    this.cv.submit().subscribe((res) => {
+    this.cv.submit(userId).subscribe((res) => {
       console.log(res);
     })
   }

@@ -6,6 +6,7 @@ import { NavComponent } from './nav/nav.component';
 import { RapiSetupModule } from '../rapi.setup/setup.module';
 import { JsonViewComponent } from './json-view/json-view.component';
 import { RapiCommonModule } from '../rapi.common/rapi.common.module';
+import { RapiDashboardModule } from '../rapi.dashboard/rapiDashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RapiCommonModule } from '../rapi.common/rapi.common.module';
     RapiSetupModule,
     RapiCommonModule,
     RapiHomeRoutesModule,
+    RapiDashboardModule,
   ]
 })
 export class RapiHomeModule { }

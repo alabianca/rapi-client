@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { flatMap } from 'rxjs/operators';
-import { TokenInfo } from '../models/tokenInfo';
+import { TokenInfo } from '../../rapi.common/models/tokenInfo';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(
         (res) => {
-          this.router.navigate(['/', 'home']);
+          this.router.navigate(['/', 'home', 'dashboard']);
         },
         (err) => console.log(err),
       );

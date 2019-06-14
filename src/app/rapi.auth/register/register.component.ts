@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { flatMap } from 'rxjs/operators';
-import { TokenInfo } from '../models/tokenInfo';
-import { User } from '../models/user';
+import { TokenInfo } from '../../rapi.common/models/tokenInfo';
+import { User } from '../../rapi.common/models/user';
 
 @Component({
   selector: 'app-login',

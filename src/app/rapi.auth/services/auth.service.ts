@@ -4,8 +4,8 @@ import { environment } from "src/environments/environment";
 import { map } from "rxjs/operators";
 import { APIResponse } from "src/app/rapi.common/models/apiResponse";
 import { Observable } from "rxjs";
-import { User } from "../models/user";
-import { TokenInfo } from "../models/tokenInfo";
+import { User } from "../../rapi.common/models/user";
+import { TokenInfo } from "../../rapi.common/models/tokenInfo";
 
 @Injectable()
 export class AuthService {
@@ -66,5 +66,11 @@ export class AuthService {
         }
 
         return JSON.parse(tokenString);
+    }
+
+    public getUserId(): string {
+        const token = this.getToken();
+
+        return token ? token.userId : null;
     }
 }

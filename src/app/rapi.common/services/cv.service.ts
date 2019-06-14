@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { CV, DEFAULT_CV, Personal, Education } from '../models/cv';
 import { Experience } from '../models/experience';
 import { Project } from '../models/project';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators'
+import { map, flatMap } from 'rxjs/operators'
 import { APIResponse } from '../models/apiResponse';
+import { URLRecord } from '../models/urlRecord';
+import { User } from 'src/app/rapi.common/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -88,12 +90,23 @@ export class CVService {
     return this.cv.skills
   }
 
-  public submit() {
+  public submit(userId: string): Observable<any> {
     const url = `${this.baseURL}/v1/api/resume`
     return this.http.post(url, this.cv)
             .pipe(
-              map((res: APIResponse) => res.data)
+              map((res: APIResponse) => res.data),
+              flatMap((val: URLRecord) => this.saveURLRecord(val.url, userId))
             )
+  }
+
+  public saveURLRecord(_url: string, userId: string) {
+    const url = `${this.baseURL}/v1/api/user/${userId}`;
+    const body: URLRecord = {
+      url: _url,
+    }
+
+    return this.http.post(url, body)
+
   }
 
   private publish() {
