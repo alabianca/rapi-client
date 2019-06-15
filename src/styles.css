@@ -33,3 +33,11 @@ button:hover {
     background-image: linear-gradient(to bottom,#654a86,#534292);
     background-color: #534292;
 }
+
+.hoverable:hover {
+    background-color: rgba(215, 215, 215, 0.25);
+}
+
+.clickable:hover {
+    cursor: pointer;
+}

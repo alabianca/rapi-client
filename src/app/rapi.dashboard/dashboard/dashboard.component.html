@@ -1,3 +1,13 @@
-<p>
-  dashboard works!
-</p>
+<div class="row">
+  <div class="column">
+    <mat-list>
+      <mat-list-item class="hoverable clickable" *ngFor="let rec of records">
+        <rapi-record [createdAt]="rec.createdAt" [url]="rec.url"></rapi-record>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="column">
+    <button>Add API</button>
+  </div>
+</div>

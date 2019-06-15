@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RapiAuthModule } from "../rapi.auth/rapiAuth.module";
 import { RapiCommonModule } from "../rapi.common/rapi.common.module";
 import { RecordService } from "./services/record.service";
+import { RecordComponent } from './record/record.component';
 
 @NgModule({
     imports: [
@@ -14,6 +15,6 @@ import { RecordService } from "./services/record.service";
     providers: [
         RecordService,
     ],
-    declarations: [DashboardComponent],
+    declarations: [DashboardComponent, RecordComponent],
 })
 export class RapiDashboardModule{}

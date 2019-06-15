@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/rapi.auth/services/auth.service';
 import { RecordService } from '../services/record.service';
+import { URLRecord } from 'src/app/rapi.common/models/urlRecord';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +10,13 @@ import { RecordService } from '../services/record.service';
 })
 export class DashboardComponent implements OnInit {
 
+  public records: URLRecord[]
+
   constructor(private recordService: RecordService) { }
 
   ngOnInit() {
     this.recordService.getRecords().subscribe((res) => {
-        console.log(res)
+        this.records = res;
     })
   }
 
