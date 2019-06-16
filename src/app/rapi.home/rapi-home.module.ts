@@ -7,6 +7,8 @@ import { RapiSetupModule } from '../rapi.setup/setup.module';
 import { JsonViewComponent } from './json-view/json-view.component';
 import { RapiCommonModule } from '../rapi.common/rapi.common.module';
 import { RapiDashboardModule } from '../rapi.dashboard/rapiDashboard.module';
+import { RapiManageModule } from '../rapi.manage/rapi.manage.module';
+import { RapiAuthModule } from '../rapi.auth/rapiAuth.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { RapiDashboardModule } from '../rapi.dashboard/rapiDashboard.module';
   imports: [
     CommonModule,
     RapiSetupModule,
+    RapiAuthModule,
+    RapiManageModule,
     RapiCommonModule,
     RapiHomeRoutesModule,
     RapiDashboardModule,

@@ -1,13 +1,11 @@
+<div style="margin-bottom: 15px;">
+  <h4 style="margin-bottom: 0px;">Select an API...</h4>
+  <span>...to <span class="purple">deploy</span>, manage API <span class="purple">keys</span> and <span class="purple">monitor</span> usage</span>
+</div>
 <div class="row">
   <div class="column">
     <div style="min-height: 50px;" class="well">
         <rapi-record *ngFor="let rec of records" (onAPISelection)="onRecordSelection($event)" [record]="rec"></rapi-record>
-      <!-- <mat-list>
-        <mat-list-item class="clickable" >
-          
-          <mat-divider></mat-divider>
-        </mat-list-item>
-      </mat-list> -->
     </div>
   </div>
   <div class="column">

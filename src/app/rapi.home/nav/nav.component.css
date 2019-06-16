@@ -18,7 +18,10 @@
 
 .flex {
     display: flex;
-    justify-content: space-between
+}
+
+.flex.between {
+    justify-content: space-between;
 }
 
 mat-icon {

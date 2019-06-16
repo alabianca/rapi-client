@@ -14,11 +14,14 @@ export class RecordComponent implements OnInit {
 
   public url: string;
   public createdAt: string;
+  public host: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.url = this.splitFromHost(this.record.url);
+    const split = this.splitFromHost(this.record.url);
+    this.url = split.url;
+    this.host = split.host;
     this.createdAt = moment(this.record.createdAt).format("MM/DD/YY")
  
   }
@@ -27,8 +30,12 @@ export class RecordComponent implements OnInit {
     this.onAPISelection.emit(this.record);
   }
 
-  private splitFromHost(url: string): string {
-    return url.split('.')[0];
+  private splitFromHost(url: string): {url: string, host: string} {
+    const split = url.split('.');
+    return {
+      url: split[0],
+      host: split[1],
+    }
   }
 
 }

@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { flatMap } from 'rxjs/operators';
 import { TokenInfo } from '../../rapi.common/models/tokenInfo';
 import { User } from 'src/app/rapi.common/models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   @ViewChild('email') public emailField: ElementRef;
 
-  constructor(private router: Router, private auth: AuthService) {
+  constructor(private router: Router, private auth: AuthService, private userService: UserService) {
     this.loginForm = this.createForm();
   }
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(
         (res: User) => {
+          this.userService.setUser(res);
           this.navigateToDashboard(res)
         },
         (err) => console.log(err),

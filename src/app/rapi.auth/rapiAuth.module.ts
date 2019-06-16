@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopInterceptor } from '@angular/common/http/src/interceptor';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 const routes: Route[] = [
   {
@@ -45,6 +46,7 @@ const interceptors = [
   providers: [
     ...interceptors,
     AuthService,
+    UserService,
   ]
 })
 export class RapiAuthModule { }
