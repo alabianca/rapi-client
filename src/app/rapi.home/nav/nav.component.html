@@ -1,9 +1,9 @@
 <nav class="flex between" id="main-nav" style="padding: 15px; padding-bottom: 0px; border-bottom: 1px solid #e7ebf3;">
     <div>
         <!-- <a routerLinkActive="active" routerLink="setup">My Resume</a> -->
-        <a routerLinkActive="active" routerLink="keys">Manage</a>
-        <a routerLinkActive="active" routerLink="try">Access</a>
-        <a routerLinkActive="active" routerLink="try">Metrics</a>
+        <a routerLinkActive="active" routerLink="manage">Manage</a>
+        <a routerLinkActive="active" routerLink="keys">Access</a>
+        <a routerLinkActive="active" routerLink="metrics">Metrics</a>
     </div>
     <div class="flex">
         <span class="purple" style="padding: 0 5px 0 5px" *ngIf="selectedAPI">{{selectedAPI.url}}</span>

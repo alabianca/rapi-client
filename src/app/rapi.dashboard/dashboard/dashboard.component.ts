@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
 
   public onRecordSelection(recordURL: URLRecord) {
     this.userService.setSelectedAPI(recordURL);
+    this.router.navigate(['/', 'home', 'manage'])
   }
  
 }

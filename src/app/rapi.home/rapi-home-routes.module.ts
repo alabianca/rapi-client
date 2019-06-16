@@ -8,6 +8,7 @@ import { ExperienceComponent } from '../rapi.setup/experience/experience.compone
 import { ProjectsComponent } from '../rapi.setup/projects/projects.component';
 import { SkillsComponent } from '../rapi.setup/skills/skills.component';
 import { DashboardComponent } from '../rapi.dashboard/dashboard/dashboard.component';
+import { ManageComponent } from '../rapi.manage/manage/manage.component';
 
 const routes: Route[] = [
   {
@@ -41,6 +42,10 @@ const routes: Route[] = [
     {
         path: 'dashboard',
         component: DashboardComponent,
+    },
+    {
+        path: 'manage',
+        component: ManageComponent,
     }
     ]
   }
