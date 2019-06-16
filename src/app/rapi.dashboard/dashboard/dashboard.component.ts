@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/rapi.auth/services/auth.service';
 import { RecordService } from '../services/record.service';
 import { URLRecord } from 'src/app/rapi.common/models/urlRecord';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   public records: URLRecord[]
 
-  constructor(private recordService: RecordService) { }
+  constructor(private recordService: RecordService, private router: Router) { }
 
   ngOnInit() {
     this.recordService.getRecords().subscribe((res) => {
@@ -20,4 +21,12 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  public add() {
+    this.router.navigate(['/', 'home', 'setup'])
+  }
+
+  public onRecordSelection(recordURL: string) {
+    console.log(recordURL)
+  }
+ 
 }

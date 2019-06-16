@@ -1,13 +1,16 @@
 <div class="row">
   <div class="column">
-    <mat-list>
-      <mat-list-item class="hoverable clickable" *ngFor="let rec of records">
-        <rapi-record [createdAt]="rec.createdAt" [url]="rec.url"></rapi-record>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-    </mat-list>
+    <div style="min-height: 50px;" class="well">
+        <rapi-record *ngFor="let rec of records" (onAPISelection)="onRecordSelection($event)" [record]="rec"></rapi-record>
+      <!-- <mat-list>
+        <mat-list-item class="clickable" >
+          
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list> -->
+    </div>
   </div>
   <div class="column">
-    <button>Add API</button>
+    <button (click)="add()">Add API</button>
   </div>
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { flatMap } from 'rxjs/operators';
 import { TokenInfo } from '../../rapi.common/models/tokenInfo';
+import { User } from 'src/app/rapi.common/models/user';
 
 @Component({
   selector: 'app-login',
@@ -31,8 +32,8 @@ export class LoginComponent implements OnInit {
         })
       )
       .subscribe(
-        (res) => {
-          this.router.navigate(['/', 'home', 'dashboard']);
+        (res: User) => {
+          this.navigateToDashboard(res)
         },
         (err) => console.log(err),
       );
@@ -44,6 +45,14 @@ export class LoginComponent implements OnInit {
       email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
     });
+  }
+
+  private navigateToDashboard(user: User) {
+    if (user.records && user.records.length > 0) {
+      this.router.navigate(['/', 'home', 'dashboard'])
+    } else {
+      this.router.navigate(['/', 'home', 'setup'])
+    }
   }
 
 }
