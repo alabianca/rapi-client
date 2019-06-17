@@ -2,6 +2,8 @@
   <form style="height: 300px; margin: 0;" class="flex column between" [formGroup]="registerForm" (submit)="register($event)">
     <div>
       <h3>Register</h3>
+      <input id="fname" placeholder="First Name" formControlName="firstName" type="text">
+      <input id="lname" placeholder="Last Name" formControlName="lastName" type="text">
       <input #email name="email" formControlName="email" placeholder="Email" type="text" />
       <input placeholder="Password" name="password" formControlName="password" type="password">
       <input placeholder="Verify Password" name="verify" formControlName="verify" type="password">

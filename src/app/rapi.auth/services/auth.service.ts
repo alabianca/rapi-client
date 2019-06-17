@@ -41,12 +41,14 @@ export class AuthService {
         return this.http.get(url).pipe(map((res: APIResponse) => res.data));
     }
 
-    public register(email: string, password: string, verify: string): Observable<User> {
+    public register(email: string, password: string, verify: string, fname: string, lname: string): Observable<User> {
         const url = `${this.baseUrl}/v1/api/user`;
         const body = {
             email,
             password,
             verify,
+            firstName: fname,
+            lastName: lname,
         };
 
         return this.http.post(url, body).pipe((map((res: APIResponse) => res.data)));
