@@ -5,10 +5,11 @@
         <a routerLinkActive="active" routerLink="keys">Access</a>
         <a routerLinkActive="active" routerLink="metrics">Metrics</a>
     </div>
-    <div class="flex">
-        <span class="purple" style="padding: 0 5px 0 5px" *ngIf="selectedAPI">{{selectedAPI.url}}</span>
-        <div id="profile">
-            <mat-icon class="white" aria-hidden="false" aria-label="profile">person</mat-icon>
+    <div style="min-width: 200px;" #profile class="flex end">
+        <div><span class="purple" style="padding: 0 5px 0 5px" *ngIf="selectedAPI">{{selectedAPI.url}}</span></div>
+        <div  id="profile">
+            <mat-icon (click)="openMenu()" class="white" aria-hidden="false" aria-label="profile">person</mat-icon>
         </div>
+        
     </div>
 </nav>`

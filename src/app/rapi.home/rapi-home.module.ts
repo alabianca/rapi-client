@@ -9,12 +9,14 @@ import { RapiCommonModule } from '../rapi.common/rapi.common.module';
 import { RapiDashboardModule } from '../rapi.dashboard/rapiDashboard.module';
 import { RapiManageModule } from '../rapi.manage/rapi.manage.module';
 import { RapiAuthModule } from '../rapi.auth/rapiAuth.module';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
     NavComponent,
     RapiHomeComponent,
     JsonViewComponent,
+    NavMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,9 @@ import { RapiAuthModule } from '../rapi.auth/rapiAuth.module';
     RapiCommonModule,
     RapiHomeRoutesModule,
     RapiDashboardModule,
+  ],
+  entryComponents: [
+    NavMenuComponent,
   ]
 })
 export class RapiHomeModule { }

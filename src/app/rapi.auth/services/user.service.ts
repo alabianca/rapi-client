@@ -15,6 +15,10 @@ export class UserService {
         this.user = user;
     }
 
+    public getUser(): User {
+        return this.user;
+    }
+
     public setSelectedAPI(api: URLRecord) {
         this.selectedAPI = api;
         this.$apiChanged.next(this.selectedAPI);

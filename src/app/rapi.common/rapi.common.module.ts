@@ -12,11 +12,13 @@ import { CVService } from './services/cv.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule } from '@angular/common/http';
+import { PopupService } from './services/popup.service';
 
 @NgModule({
   declarations: [
     RapiToggleSwitchComponent,
     ChipComponent,
+
   ],
   imports: [
     CommonModule,
@@ -42,9 +44,11 @@ import { HttpClientModule } from '@angular/common/http';
       ChipComponent,
       MatIconModule,
       MatStepperModule,
+
   ],
   providers: [
     CVService,
+    PopupService,
   ]
 })
 export class RapiCommonModule { }
