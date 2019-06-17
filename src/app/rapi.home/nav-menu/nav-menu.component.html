@@ -1,7 +1,16 @@
 <div class="popup">
   <ul style="width: 100%;" class="list">
-    <li class="grey-border bottom" style="height: 100px;">{{email}}</li>
-    <li class="grey-border bottom" style="height: 40px;;">Dashboard</li>
-    <li style="height: 40px;">Sign out</li>
+    <li class="grey-border bottom" style="height: 100px;">
+      <div id="name" style="width: 100%; padding-top: 30px; text-align: center;">
+        <span>{{name}}</span>
+        <span>{{email}}</span>
+      </div>
+    </li>
+    <li class="grey-border bottom" style="height: 40px;;">
+      <a (click)="dismiss()" routerLink="home/dashboard">Dashboard</a>
+    </li>
+    <li style="height: 40px;">
+      <a (click)="dismiss()" routerLink="auth/login">Sign out</a>
+    </li>
   </ul>
 </div>

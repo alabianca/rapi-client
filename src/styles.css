@@ -87,6 +87,7 @@ button:hover {
 
 .list li {
     margin: 0;
+    padding: 0 5px 0 5px;
 }
 
 .grey-border {

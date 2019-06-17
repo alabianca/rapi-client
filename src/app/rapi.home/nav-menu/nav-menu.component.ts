@@ -15,12 +15,22 @@ interface NavMenuData {
 })
 export class NavMenuComponent implements OnInit {
   public email: string;
+  public name: string;
 
   constructor(@Inject(POPUP_DATA) public data: NavMenuData, public popupRef: PopupRef) {
     this.email = data.user.email;
+    this.name = this.getFullName(data.user.firstName, data.user.lastName)
   }
 
   ngOnInit() {
+  }
+
+  public dismiss() {
+    this.popupRef.close()
+  }
+
+  private getFullName(fname: string, lname: string): string {
+    return fname + " " + lname;
   }
 
 }
