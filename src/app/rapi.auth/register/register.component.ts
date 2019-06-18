@@ -8,7 +8,7 @@ import { User } from '../../rapi.common/models/user';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'rapi-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

@@ -22,3 +22,7 @@ ul li {
 ul li:hover {
     background-color: #F7F8FB;
 }
+
+.iconlink {
+    margin-left: 10px;
+}

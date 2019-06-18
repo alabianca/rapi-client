@@ -6,11 +6,18 @@
         <span>{{email}}</span>
       </div>
     </li>
-    <li class="grey-border bottom" style="height: 40px;;">
-      <a (click)="dismiss()" routerLink="home/dashboard">Dashboard</a>
+    <li *ngIf="selectedAPI" class="grey-border bottom" style="height: 40px;;">
+      <div style="padding: 7px;" class="flex row">
+        <mat-icon>apps</mat-icon>
+        <a class="iconlink" (click)="dismiss()" routerLink="home/dashboard">Dashboard</a>
+      </div>
     </li>
     <li style="height: 40px;">
-      <a (click)="dismiss()" routerLink="auth/login">Sign out</a>
+      <div style="padding: 7px" class="flex row">
+        <mat-icon>arrow_forward</mat-icon> 
+        <a class="iconlink" (click)="dismiss()" routerLink="auth/login">Sign Out</a>
+      </div>
+      
     </li>
   </ul>
 </div>

@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
     this.recordService.getRecords().subscribe((res) => {
         this.records = res;
     })
+
+    this.userService.setSelectedAPI(null);
   }
 
   public add() {
