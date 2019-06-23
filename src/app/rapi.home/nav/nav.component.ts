@@ -6,6 +6,7 @@ import { PopupService, PopupConfig, POPUP_DATA, PopupRef } from 'src/app/rapi.co
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/rapi.common/models/user';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
+import { CV } from 'src/app/rapi.common/models/cv';
 
 @Component({
   selector: 'rp-nav',
@@ -14,7 +15,7 @@ import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 })
 export class NavComponent implements OnInit {
   @ViewChild('profile') public profile: ElementRef;
-  public selectedAPI: URLRecord;
+  public selectedAPI: CV;
   public apiSubscription: Subscription;
 
 

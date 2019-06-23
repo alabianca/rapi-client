@@ -16,6 +16,8 @@ export interface Education {
 }
 
 export interface CV {
+    userId?: string,
+    id?: string,
     personal: Personal,
     education: Education,
     experience: Experience[],

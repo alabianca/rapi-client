@@ -2,14 +2,15 @@ import { Injectable } from "@angular/core";
 import { User } from "src/app/rapi.common/models/user";
 import { URLRecord } from "src/app/rapi.common/models/urlRecord";
 import { BehaviorSubject } from "rxjs";
+import { CV } from "src/app/rapi.common/models/cv";
 
 @Injectable()
 export class UserService {
 
     private user: User;
-    private selectedAPI: URLRecord;
+    private selectedAPI: CV;
 
-    public $apiChanged = new BehaviorSubject<URLRecord>(this.selectedAPI);
+    public $apiChanged = new BehaviorSubject<CV>(this.selectedAPI);
 
     public setUser(user: User) {
         this.user = user;
@@ -19,12 +20,12 @@ export class UserService {
         return this.user;
     }
 
-    public setSelectedAPI(api: URLRecord) {
+    public setSelectedAPI(api: CV) {
         this.selectedAPI = api;
         this.$apiChanged.next(this.selectedAPI);
     }
 
-    public getSelectedAPI(): URLRecord {
+    public getSelectedAPI(): CV {
         return this.selectedAPI;
     }
 }
