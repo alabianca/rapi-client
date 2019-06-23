@@ -1,0 +1,19 @@
+<h5 mat-dialog-title>Create Key</h5>
+<div mat-dialog-content>
+  <label for="name">Name</label>
+  <input [(ngModel)]="key.friendlyName" name="name" type="text">
+  <div>
+      <h6>Scopes</h6>
+      <div *ngFor="let scope of scopes">
+          <mat-checkbox (change)="change($event, scope)" [checked]="scope.checked"  labelPosition="after" [color]="color">{{scope.label}}</mat-checkbox>
+          <span style="font-size: 0.8em; color: #62738d;"> {{scope.description}}</span>
+      </div>
+  </div>
+  <div>
+    <span style="font-size: 0.8em; color: #62738d">{{message}}</span>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+    <button [disabled]="key.friendlyName.length == 0 || loading" (click)="save()">Save</button>
+</div>

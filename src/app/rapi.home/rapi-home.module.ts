@@ -10,6 +10,7 @@ import { RapiDashboardModule } from '../rapi.dashboard/rapiDashboard.module';
 import { RapiManageModule } from '../rapi.manage/rapi.manage.module';
 import { RapiAuthModule } from '../rapi.auth/rapiAuth.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { RapiAccessModule } from '../rapi.access/rapi.access.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     RapiCommonModule,
     RapiHomeRoutesModule,
     RapiDashboardModule,
+    RapiAccessModule,
   ],
   entryComponents: [
     NavMenuComponent,

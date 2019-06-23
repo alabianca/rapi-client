@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupService } from './services/popup.service';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PopupService } from './services/popup.service';
     MatIconModule,
     MatStepperModule,
     HttpClientModule,
+    MatCheckboxModule
   ],
   exports: [
       ReactiveFormsModule,
@@ -44,6 +46,7 @@ import { PopupService } from './services/popup.service';
       ChipComponent,
       MatIconModule,
       MatStepperModule,
+      MatCheckboxModule,
 
   ],
   providers: [

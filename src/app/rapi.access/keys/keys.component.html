@@ -1,0 +1,27 @@
+<div *ngIf="keys.length > 0; else nokeys">
+    <table>
+        <tr>
+          <th *ngFor="let c of columns">{{c}}</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let key of keys">
+            <td>
+              {{key.friendlyName}}
+            </td>
+            <td>
+              <code>{{key.key}}</code>
+            </td>
+            <td>
+              {{key.scope}}
+            </td>
+            <td>
+              {{key.createdAt}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+<ng-template #nokeys>
+  <h4>No API Keys have been created yet</h4>
+</ng-template>

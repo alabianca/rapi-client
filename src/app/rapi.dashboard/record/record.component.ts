@@ -21,7 +21,7 @@ export class RecordComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.url = `${this.host}/${this.record.id}`
+    this.url = `${this.host}/record/${this.record.id}`
     //this.createdAt = moment(this.record.createdAt).format("MM/DD/YY")
  
   }
