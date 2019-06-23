@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { URLRecord } from 'src/app/rapi.common/models/urlRecord';
+import { CV } from 'src/app/rapi.common/models/cv';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'rapi-record',
@@ -9,20 +11,18 @@ import { URLRecord } from 'src/app/rapi.common/models/urlRecord';
 })
 export class RecordComponent implements OnInit {
 
-  @Input() record: URLRecord;
+  @Input() record: CV;
   @Output() onAPISelection = new EventEmitter()
 
   public url: string;
   public createdAt: string;
-  public host: string;
+  public host = environment.baseUrl;
 
   constructor() { }
 
   ngOnInit() {
-    const split = this.splitFromHost(this.record.url);
-    this.url = split.url;
-    this.host = split.host;
-    this.createdAt = moment(this.record.createdAt).format("MM/DD/YY")
+    this.url = `${this.host}/${this.record.id}`
+    //this.createdAt = moment(this.record.createdAt).format("MM/DD/YY")
  
   }
 
@@ -30,12 +30,5 @@ export class RecordComponent implements OnInit {
     this.onAPISelection.emit(this.record);
   }
 
-  private splitFromHost(url: string): {url: string, host: string} {
-    const split = url.split('.');
-    return {
-      url: split[0],
-      host: split[1],
-    }
-  }
 
 }

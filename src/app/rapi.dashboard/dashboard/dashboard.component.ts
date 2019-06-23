@@ -4,6 +4,8 @@ import { RecordService } from '../services/record.service';
 import { URLRecord } from 'src/app/rapi.common/models/urlRecord';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/rapi.auth/services/user.service';
+import { CVService } from 'src/app/rapi.common/services/cv.service';
+import { CV } from 'src/app/rapi.common/models/cv';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +14,13 @@ import { UserService } from 'src/app/rapi.auth/services/user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public records: URLRecord[]
+  public records: CV[]
 
-  constructor(private recordService: RecordService, private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private cv: CVService) { }
 
   ngOnInit() {
-    this.recordService.getRecords().subscribe((res) => {
-        this.records = res;
+    this.cv.getResumes().subscribe((res: CV[]) => {
+      this.records = res;
     })
 
     this.userService.setSelectedAPI(null);
@@ -28,8 +30,8 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/', 'home', 'setup'])
   }
 
-  public onRecordSelection(recordURL: URLRecord) {
-    this.userService.setSelectedAPI(recordURL);
+  public onRecordSelection(cv: CV) {
+    this.userService.setSelectedAPI(cv);
     this.router.navigate(['/', 'home', 'manage'])
   }
  

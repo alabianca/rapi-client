@@ -95,15 +95,26 @@ export class CVService {
     return this.http.post(url, this.cv)
             .pipe(
               map((res: APIResponse) => res.data),
-              flatMap((val: URLRecord) => this.saveURLRecord(val.id, userId))
             )
   }
 
+  public getResumes(): Observable<any> {
+    const url = `${this.baseURL}/v1/api/resume`
+    return this.http.get(url).pipe((map((res: APIResponse) => res.data)))
+  }
+
+  /**
+   * 
+   * @param id 
+   * @param userId 
+   * @deprecated DON'T USE THIS ANYMORE
+   */
   public saveURLRecord(id: string, userId: string) {
     const url = `${this.baseURL}/v1/api/user/${userId}`;
     const body: URLRecord = {
       id: id,
     };
+
 
     return this.http.post(url, body);
 
