@@ -10,7 +10,7 @@ export class KeysComponent implements OnInit {
 
   @Input() public keys: APIKey[]
 
-  public columns = ["Name", "Key", "Scope", "Created At"]
+  public columns = ["Name", "Key", "Scope", "Created At", ""]
 
   constructor() { }
 

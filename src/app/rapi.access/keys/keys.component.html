@@ -12,10 +12,14 @@
               <code>{{key.key}}</code>
             </td>
             <td>
-              {{key.scope}}
+              <span style="font-size: 0.8em;" class="pill" *ngFor="let s of key.scope">{{s}}</span>
             </td>
             <td>
-              {{key.createdAt}}
+              {{key.createdAt | date}}
+            </td>
+            <td>
+              <button id="edit-btn" class="button-small button-outline action">Edit</button>
+              <button id="delete-btn" class="button-small action btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>

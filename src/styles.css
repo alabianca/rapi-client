@@ -22,6 +22,8 @@ body {
 button {
     background-color: #a16eff;
     border-color: #a16eff
+    /* background-color: #61467f;
+    border-color: #61467f; */
 }
 
 button:hover {
@@ -98,4 +100,25 @@ button:hover {
     border-top: none;
     border-left: none;
     border-right: none;
+}
+
+.btn-danger {
+    background-color: #DE0A0A;
+    border-color: #DE0A0A;
+}
+
+.pill {
+    min-width: 60px;
+    min-width: 50px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #a16eff;
+    text-align: center;
+    /* height: 25px; */
+    color: white;
+    border-color: #61467f;
+    /* line-height: 25px; */
+    margin: 0 5px;
+    font-weight: 100;
+    padding: 0 8px;
 }
