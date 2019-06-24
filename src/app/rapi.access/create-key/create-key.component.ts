@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ThemePalette } from '@angular/material/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { KeyService } from '../services/key.service';
+import cloneDeep from 'lodash/cloneDeep'
 
 const SCOPE_READ = "read";
 const SCOPE_CREATE = "create";
@@ -19,7 +20,7 @@ const NO_ACCESS = "This API key can not read or write resources";
   preserveWhitespaces: true,
 })
 export class CreateKeyComponent implements OnInit {
-  public key: APIKey = DEFAULT_KEY;
+  public key: APIKey = cloneDeep(DEFAULT_KEY)
   public color: ThemePalette = "primary";
   public scopes = [
     {
