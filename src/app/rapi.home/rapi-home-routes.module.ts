@@ -10,6 +10,7 @@ import { SkillsComponent } from '../rapi.setup/skills/skills.component';
 import { DashboardComponent } from '../rapi.dashboard/dashboard/dashboard.component';
 import { ManageComponent } from '../rapi.manage/manage/manage.component';
 import { AccessRootComponent } from '../rapi.access/access-root/access-root.component';
+import { MetricsRootComponent } from '../rapi.metrics/metrics-root/metrics-root.component';
 
 const routes: Route[] = [
   {
@@ -51,6 +52,10 @@ const routes: Route[] = [
     {
         path: 'access',
         component: AccessRootComponent,
+    },
+    {
+        path: 'metrics',
+        component: MetricsRootComponent,
     }
     ]
   }
