@@ -1,5 +1,5 @@
 export interface Log {
     id: string,
     apiId: string,
-    data: string,
+    date: string,
 }

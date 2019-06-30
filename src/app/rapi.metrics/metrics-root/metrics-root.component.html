@@ -1,3 +1,3 @@
-<p>
-  metrics-root works!
-</p>
+<div *ngIf="logs.length > 0">
+  <rapi-graph [logs]="logs" [keys]="apiKeys"></rapi-graph>
+</div>
