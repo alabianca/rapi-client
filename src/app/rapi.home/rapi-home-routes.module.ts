@@ -11,6 +11,7 @@ import { DashboardComponent } from '../rapi.dashboard/dashboard/dashboard.compon
 import { ManageComponent } from '../rapi.manage/manage/manage.component';
 import { AccessRootComponent } from '../rapi.access/access-root/access-root.component';
 import { MetricsRootComponent } from '../rapi.metrics/metrics-root/metrics-root.component';
+import { NavGuard } from '../rapi.dashboard/guards/nav.guard';
 
 const routes: Route[] = [
   {
@@ -48,14 +49,17 @@ const routes: Route[] = [
     {
         path: 'manage',
         component: ManageComponent,
+        canActivate: [NavGuard],
     },
     {
         path: 'access',
         component: AccessRootComponent,
+        canActivate: [NavGuard],
     },
     {
         path: 'metrics',
         component: MetricsRootComponent,
+        canActivate: [NavGuard],
     }
     ]
   }

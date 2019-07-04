@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private cv: CVService) { }
 
   ngOnInit() {
+    // no api selection at this point. so clear it from ls
+    localStorage.removeItem("apiID");
     this.cv.getResumes().subscribe((res: CV[]) => {
       this.records = res;
     })

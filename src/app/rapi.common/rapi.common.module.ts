@@ -14,11 +14,14 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupService } from './services/popup.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { WarnDialogComponent } from './warn-dialog/warn-dialog.component';
+import { RapiDialogService } from './services/dialog.service';
 
 @NgModule({
   declarations: [
     RapiToggleSwitchComponent,
     ChipComponent,
+    WarnDialogComponent,
 
   ],
   imports: [
@@ -49,9 +52,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
       MatCheckboxModule,
 
   ],
+  entryComponents: [
+    WarnDialogComponent,
+  ],
   providers: [
     CVService,
     PopupService,
+    RapiDialogService,
   ]
 })
 export class RapiCommonModule { }

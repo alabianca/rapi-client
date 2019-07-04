@@ -21,6 +21,9 @@ export class UserService {
     }
 
     public setSelectedAPI(api: CV) {
+        if (api) {
+            localStorage.setItem("apiID", api.id);
+        }
         this.selectedAPI = api;
         this.$apiChanged.next(this.selectedAPI);
     }

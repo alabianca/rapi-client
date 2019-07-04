@@ -6,6 +6,7 @@ import { RapiCommonModule } from "../rapi.common/rapi.common.module";
 import { RecordService } from "./services/record.service";
 import { RecordComponent } from './record/record.component';
 import { RouterModule } from "@angular/router";
+import { NavGuard } from "./guards/nav.guard";
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { RouterModule } from "@angular/router";
     providers: [
         RecordService,
         RouterModule,
+        NavGuard,
     ],
     declarations: [DashboardComponent, RecordComponent],
 })
