@@ -1,3 +1,12 @@
-<div *ngIf="logs.length > 0">
-  <rapi-graph [logs]="logs" [keys]="apiKeys"></rapi-graph>
+<div class="row">
+    <div class="column column-10">
+        <div *ngFor="let key of allKeys">
+          <mat-checkbox color="primary"  (change)="change($event, key)" [checked]="true"  labelPosition="after">{{key.friendlyName}}</mat-checkbox>
+        </div>
+      </div>
+      <div class="column column-90">
+        <div *ngIf="logs.length > 0">
+            <rapi-graph #graph [logs]="logs" [keys]="apiKeys"></rapi-graph>
+          </div>
+      </div>
 </div>

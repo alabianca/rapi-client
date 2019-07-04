@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, SimpleChanges, OnChanges } from '@angular/core';
 import Chart from 'chart.js';
 import { APIMetricChart, KeyData } from '../models/chart';
 import { APIKey } from 'src/app/rapi.access/models/apiKey';
@@ -11,7 +11,7 @@ import uniq from 'lodash/uniq';
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
-export class GraphComponent implements OnInit {
+export class GraphComponent implements OnInit, OnChanges {
   @Input() keys: APIKey[] = [];
   @Input() logs: Log[] = []
   @ViewChild('chart') public chart: ElementRef;
@@ -21,6 +21,16 @@ export class GraphComponent implements OnInit {
 
   public ngOnInit() {
     this.renderGraph();
+  }
+
+  public ngOnChanges(changes: SimpleChanges) {
+    if (changes.keys.currentValue != changes.keys.previousValue && !changes.keys.firstChange) {
+      this.renderGraph()
+    }
+  }
+
+  public update() {
+    this.rapiChart.update();
   }
 
 

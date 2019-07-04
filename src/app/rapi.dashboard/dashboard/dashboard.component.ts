@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
 
   public onRecordSelection(cv: CV) {
     this.userService.setSelectedAPI(cv);
-    this.router.navigate(['/', 'home', 'manage'])
+    this.router.navigate(['/', 'home', 'access'])
   }
  
 }

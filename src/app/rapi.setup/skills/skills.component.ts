@@ -38,7 +38,6 @@ export class SkillsComponent implements OnInit {
     const userId = this.authService.getUserId();
     this.cv.setSkills(this.skills);
     this.cv.submit(userId).subscribe((res) => {
-      console.log(res);
     })
   }
 
