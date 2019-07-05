@@ -10,7 +10,6 @@ RUN npm install
 COPY . .
 
 RUN npm run build
-RUN ls dist/rapi-client
 
 # PHASE 2
 FROM nginx
