@@ -1,4 +1,4 @@
 <div>
-  <rapi-keys [keys]="keys"></rapi-keys>
+  <rapi-keys (deleted)="reload()" [keys]="keys"></rapi-keys>
   <button (click)="create()">Create API Key</button>
 </div>

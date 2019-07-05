@@ -1,0 +1,8 @@
+<h3 mat-dialog-title>{{title}}</h3>
+<div mat-dialog-content>
+  <p>{{message}}</p>
+</div>
+<div class="confirm-actions" mat-dialog-actions>
+  <button class="yes btn-danger" (click)="yesClick()">{{yes}}</button>
+  <button class="no" (click)="noClick()">{{no}}</button>
+</div>

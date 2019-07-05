@@ -107,6 +107,11 @@ button:hover {
     border-color: #DE0A0A;
 }
 
+.btn-danger:hover {
+    background-color: #DE0A0A;
+    border-color: #DE0A0A;
+}
+
 .pill {
     min-width: 60px;
     min-width: 50px;
@@ -121,4 +126,8 @@ button:hover {
     margin: 0 5px;
     font-weight: 100;
     padding: 0 8px;
+}
+
+.confirm-actions button {
+    margin: 5px;
 }

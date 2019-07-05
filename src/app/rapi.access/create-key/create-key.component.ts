@@ -5,6 +5,7 @@ import { ThemePalette } from '@angular/material/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { KeyService } from '../services/key.service';
 import cloneDeep from 'lodash/cloneDeep'
+import { Observable } from 'rxjs';
 
 const SCOPE_READ = "read";
 const SCOPE_CREATE = "create";
@@ -12,6 +13,11 @@ const ALL_ACCESS = "This API key can read and create resources";
 const READ_ACCESS = "This API key can read resources only";
 const WRITE_ACCESS = "This API key can create resources only";
 const NO_ACCESS = "This API key can not read or write resources";
+
+export interface KeyModalData {
+  mode: "create" | "edit",
+  key: APIKey,
+}
 
 @Component({
   selector: 'rapi-create-key',
@@ -39,11 +45,13 @@ export class CreateKeyComponent implements OnInit {
 
   public message = NO_ACCESS;
   public loading = false;
+  public mode: "create" | "edit";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: APIKey, public dialogRef: MatDialogRef<CreateKeyComponent>, private keyService: KeyService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: KeyModalData, public dialogRef: MatDialogRef<CreateKeyComponent>, private keyService: KeyService) { }
 
   ngOnInit() {
-    this.key = {...this.key, ...this.data}
+    this.key = {...this.key, ...this.data.key};
+    this.mode = this.data.mode || "create"; // default to create mode;
     this.scopes = this.scopes.map((scope) => {
       return {
         ...scope,
@@ -86,7 +94,10 @@ export class CreateKeyComponent implements OnInit {
 
   public save() {
     this.loading = true;
-    this.keyService.createKey(this.key)
+
+    const observable = this.mode === "create" ? this.create.bind(this) : this.update.bind(this);
+
+    observable(this.key)
       .subscribe(
         (res: APIKey) => {
           this.loading = false;
@@ -98,6 +109,14 @@ export class CreateKeyComponent implements OnInit {
           console.log(err);
         }
         )
+  }
+
+  private create(key: APIKey): Observable<APIKey> {
+    return this.keyService.createKey(key)
+  }
+
+  private update(key: APIKey): Observable<APIKey> {
+    return this.keyService.updateKey(key);
   }
 
 }

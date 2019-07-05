@@ -18,8 +18,8 @@
               {{key.createdAt | date}}
             </td>
             <td>
-              <button id="edit-btn" class="button-small button-outline action">Edit</button>
-              <button id="delete-btn" class="button-small action btn-danger">Delete</button>
+              <button (click)="edit(key)" id="edit-btn" class="button-small button-outline action">Edit</button>
+              <button (click)="delete(key)" id="delete-btn" class="button-small action btn-danger">Delete</button>
             </td>
           </tr>
         </tbody>

@@ -18,9 +18,16 @@ export class AccessRootComponent implements OnInit {
     this.getKeys();
   }
 
+  public reload() {
+    this.getKeys();
+  }
+
   public create() {
     const ref = this.dialogs.open(CreateKeyComponent, {
       minWidth: "800px",
+      data: {
+        mode: "create",
+      }
     });
 
     ref.afterClosed().subscribe((res: APIKey) => {

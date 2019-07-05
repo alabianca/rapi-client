@@ -16,12 +16,14 @@ import { PopupService } from './services/popup.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { WarnDialogComponent } from './warn-dialog/warn-dialog.component';
 import { RapiDialogService } from './services/dialog.service';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     RapiToggleSwitchComponent,
     ChipComponent,
     WarnDialogComponent,
+    ConfirmDialogComponent,
 
   ],
   imports: [
@@ -54,6 +56,7 @@ import { RapiDialogService } from './services/dialog.service';
   ],
   entryComponents: [
     WarnDialogComponent,
+    ConfirmDialogComponent,
   ],
   providers: [
     CVService,

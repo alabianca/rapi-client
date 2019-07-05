@@ -50,4 +50,32 @@ export class KeyService {
                 map((res: APIResponse) => res.data)
             )
     }
+
+    public updateKey(key: APIKey): Observable<APIKey> {
+        const selectedAPI = this.usersService.getSelectedAPI();
+
+        if (!selectedAPI) {
+            return new Observable<APIKey>((ob) => {
+                ob.error(new Error("Not Selected API"))
+                ob.complete();
+            })
+        }
+
+        const id = selectedAPI.id;
+        const url = `${this.baseUrl}/v1/api/key/${id}`;
+        return this.http.patch(url, key)
+            .pipe(
+                map((res: APIResponse) => res.data),
+            )
+    }
+
+    public deleteKey(key: APIKey): Observable<any> {
+        const id = key.id;
+        const url = `${this.baseUrl}/v1/api/key/${id}`;
+
+        return this.http.delete(url)
+            .pipe(
+                map((res: APIResponse) => res.data),
+            )
+    }
 }
