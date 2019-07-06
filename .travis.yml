@@ -9,3 +9,13 @@ before_install:
 
 script:
   - docker run alabianca/rapi-web-dev npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "Rapi-Client"
+  env: "RapiClient-env"
+  bucket_name: "elasticbeanstalk-us-east-2-686821800290"
+  bucket_path: "Rapi-Client"
+  on:
+    branch: master
