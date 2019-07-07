@@ -1,7 +1,7 @@
 import { Injectable, ElementRef, Component, Injector, InjectionToken } from "@angular/core";
 import { Overlay, OverlayConfig, ScrollStrategy, PositionStrategy, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal, ComponentType, PortalInjector, Portal } from "@angular/cdk/portal";
-import { FlexibleConnectedPositionStrategyOrigin, ConnectedPosition } from "@angular/cdk/overlay/typings/position/flexible-connected-position-strategy";
+import { ConnectedPosition } from "@angular/cdk/overlay/typings/position/flexible-connected-position-strategy";
 
 export const POPUP_DATA = new InjectionToken<any>("POPUP_DATA");
 

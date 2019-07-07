@@ -9,7 +9,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN npm run build:prod
 
 # PHASE 2
 FROM nginx
