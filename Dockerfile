@@ -13,4 +13,5 @@ CMD [ "npm", "run", "build", ]
 
 # PHASE 2
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/dist/rapi-client /usr/share/nginx/html
