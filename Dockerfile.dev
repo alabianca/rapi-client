@@ -15,4 +15,3 @@ RUN npm install
 COPY . .
 
 CMD ["npm", "run", "start"]
-# npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox

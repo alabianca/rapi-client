@@ -6,9 +6,19 @@ services:
 
 before_install:
   - docker build -t alabianca/rapi-web-dev -f Dockerfile.dev .
+  # install heroku cli
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries (docker hub and heroku registry)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 
 script:
+  # run unit tests
   - docker run alabianca/rapi-web-dev npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+
+deploy:
+  provider: script
+  script: bash deploy.sh
 
 # deploy:
 #   provider: elasticbeanstalk
