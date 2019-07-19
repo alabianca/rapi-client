@@ -1,2 +1,2 @@
 login $HEROKU_USERNAME
-password $HEROKU_TOKEN
+password $HEROKU_PASSWORD
