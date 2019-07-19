@@ -10,7 +10,7 @@ before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   # login to docker registries (docker hub and heroku registry)
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - (echo "$HEROKU_USERNAME" echo "$HEROKU_PASSWORD") | heroku container:login
+  - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
 
 script:
   # run unit tests
