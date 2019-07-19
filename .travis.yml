@@ -7,7 +7,7 @@ services:
 before_install:
   - docker build -t alabianca/rapi-web-dev -f Dockerfile.dev .
   # install heroku cli
-  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  #- wget -qO- https://toolbelt.heroku.com/install.sh | sh
   # login to docker registries (docker hub and heroku registry)
   # - sed -e 's/$HEROKU_USERNAME/'"$HEROKU_USERNAME"'/g' -e 's/$HEROKU_TOKEN/'"$HEROKU_TOKEN"'/g' heroku_auth > ~/.netrc
   # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -22,7 +22,7 @@ deploy:
   provider: heroku
   api_key:
     secure: "$HEROKU_TOKEN"
-    app: ancient-castle-26448
+  app: "$HEROKU_APP_NAME"
 
 # deploy:
 #   provider: elasticbeanstalk
