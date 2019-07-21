@@ -6,13 +6,6 @@ services:
 
 before_install:
   - docker build -t alabianca/rapi-web-dev -f Dockerfile.dev .
-  # install heroku cli
-  #- wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  # login to docker registries (docker hub and heroku registry)
-  # - sed -e 's/$HEROKU_USERNAME/'"$HEROKU_USERNAME"'/g' -e 's/$HEROKU_TOKEN/'"$HEROKU_TOKEN"'/g' heroku_auth > ~/.netrc
-  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  # - docker login --username=_ --password="$HEROKU_TOKEN" registry.heroku.com
-  #- heroku stack:set container --app "$HEROKU_APP_NAME"
 
 script:
   # run unit tests
@@ -23,17 +16,3 @@ deploy:
   api_key:
     secure: "$HEROKU_TOKEN"
   app: "$HEROKU_APP_NAME"
-
-# deploy:
-#   provider: elasticbeanstalk
-#   region: "us-east-2"
-#   app: "Rapi-Client"
-#   env: "RapiClient-env"
-#   bucket_name: "elasticbeanstalk-us-east-2-686821800290"
-#   bucket_path: "Rapi-Client"
-#   on:
-#     branch: master
-#   access_key_id:
-#     secure: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: $AWS_SECRET_KEY
