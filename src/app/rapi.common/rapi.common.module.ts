@@ -18,6 +18,9 @@ import { WarnDialogComponent } from './warn-dialog/warn-dialog.component';
 import { RapiDialogService } from './services/dialog.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { CopyToCliboardDirective } from './copyToClickboard/copy.directive';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ChipComponent,
     WarnDialogComponent,
     ConfirmDialogComponent,
-
+    CopyToCliboardDirective,
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     HttpClientModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatSnackBarModule,
   ],
   exports: [
       ReactiveFormsModule,
@@ -55,7 +59,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
       MatStepperModule,
       MatCheckboxModule,
       MatTooltipModule,
-
+      CopyToCliboardDirective,
+      MatSnackBarModule,
   ],
   entryComponents: [
     WarnDialogComponent,

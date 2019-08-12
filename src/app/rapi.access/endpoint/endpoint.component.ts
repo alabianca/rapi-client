@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'rp-endpoint',
@@ -13,7 +14,7 @@ export class EndpointComponent implements OnInit {
   @Input() public recordId: string = "";
   @Input() public path: string = "";
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -24,8 +25,11 @@ export class EndpointComponent implements OnInit {
     return url;
   }
 
-  public copy() {
-    
+  public copied(val: string) {
+    console.log('copied', val);
+    this.snackBar.open("Copied to clipboard!", '', {
+      duration: 1000,
+    })
   }
 
 }

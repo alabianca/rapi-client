@@ -1,8 +1,10 @@
 <div 
-matTooltip="Copy to clickboard"
+rp-copy
+[textToCopy]="constructURL()"
+(copied)="copied($event)"
+matTooltip="Copy to clipboard"
 matTooltipPosition="after"
-matTooltipShowDelay="700"
-(click)="copy()"
+matTooltipShowDelay="300"
 [ngStyle]="{'border-color': method === 'GET' ? '#66BB6A' : '#ef5350'}" class="endpoint">
   <span class="method">{{method}}</span><span>{{constructURL()}}</span>
 </div>
