@@ -1,4 +1,30 @@
-<div>
-  <rapi-keys (deleted)="reload()" [keys]="keys"></rapi-keys>
-  <button (click)="create()">Create API Key</button>
+<div style="margin-bottom: 50px;">
+    <rapi-keys (deleted)="reload()" [keys]="keys"></rapi-keys>
+    <button (click)="create()">Create API Key</button>
+</div>
+<div  class="row">
+
+  <div class="column">
+      <h4 class="title">Endpoints</h4>
+      <div>
+        <rp-endpoint *ngFor="let ep of endpoints"
+        [key]="ep.key"
+        [baseURL]="ep.baseURL"
+        [recordId]="ep.recordId"
+        [path]="ep.path"
+        [method]="ep.method"
+        ></rp-endpoint>
+      </div>
+  </div>
+
+  <div class="column">
+    <h4 class="title">Access your resume over HTTP</h4>
+    <div class="content">
+      <p>Use your API key to access your resume from anywhere. The scope of the key determines which HTTP methods can be used.</p>
+      <ul class="scopes" style="list-style: none;">
+        <li><span>Read: </span><span>GET</span></li>
+        <li><span>Create: </span><span>POST, UPDATE, PATCH and DELETE</span></li>
+      </ul>
+    </div>
+  </div>
 </div>

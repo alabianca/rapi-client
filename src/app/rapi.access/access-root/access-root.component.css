@@ -1,0 +1,21 @@
+/* .section {
+    border-bottom: 1px #e7ebf3;
+} */
+
+.title {
+    color: #79589f;
+}
+
+.content {
+    background-color: rgba(87,114,154,.05);
+    color: #475366;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(227, 231, 239);
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.scopes li span:nth-child(1) {
+    font-weight: 400;
+}

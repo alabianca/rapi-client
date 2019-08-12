@@ -6,7 +6,7 @@
         <a routerLinkActive="active" routerLink="metrics">Metrics</a>
     </div>
     <div style="min-width: 200px;" #profile class="flex end">
-        <div><span class="purple pill" style="padding: 0 5px 0 5px; font-size: 0.8em;" *ngIf="selectedAPI">{{selectedAPI.id}}</span></div>
+        <div><span class="purple pill" style="padding: 0 5px 0 5px; font-size: 0.8em;" *ngIf="selectedAPI"><span style="font-weight: 400;">API ID:</span> {{selectedAPI.id}}</span></div>
         <div  id="profile">
             <mat-icon (click)="openMenu()" class="white" aria-hidden="false" aria-label="profile">person</mat-icon>
         </div>

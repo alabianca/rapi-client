@@ -6,9 +6,10 @@ import { RapiCommonModule } from '../rapi.common/rapi.common.module';
 import { KeyService } from './services/key.service';
 import { RapiAuthModule } from '../rapi.auth/rapiAuth.module';
 import { CreateKeyComponent } from './create-key/create-key.component';
+import { EndpointComponent } from './endpoint/endpoint.component';
 
 @NgModule({
-  declarations: [AccessRootComponent, KeysComponent, CreateKeyComponent],
+  declarations: [AccessRootComponent, KeysComponent, CreateKeyComponent, EndpointComponent],
   imports: [
     CommonModule,
     RapiCommonModule,

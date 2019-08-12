@@ -3,6 +3,9 @@ import { KeyService } from '../services/key.service';
 import { APIKey } from '../models/apiKey';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateKeyComponent } from '../create-key/create-key.component';
+import { ENDPOINTS } from '../models/endpoints';
+import { UserService } from 'src/app/rapi.auth/services/user.service';
+
 
 @Component({
   selector: 'app-access-root',
@@ -12,10 +15,17 @@ import { CreateKeyComponent } from '../create-key/create-key.component';
 export class AccessRootComponent implements OnInit {
 
   public keys: APIKey[] = []
-  constructor(private keyService: KeyService, private dialogs: MatDialog) { }
+  public endpoints = [...ENDPOINTS];
+  constructor(private keyService: KeyService, private dialogs: MatDialog, private userService: UserService) { }
 
   ngOnInit() {
     this.getKeys();
+    this.endpoints = this.endpoints.map((ep) => {
+      return {
+        ...ep,
+        recordId: this.userService.getSelectedAPI().id ? this.userService.getSelectedAPI().id : '{recordId}',
+      }
+    })
   }
 
   public reload() {

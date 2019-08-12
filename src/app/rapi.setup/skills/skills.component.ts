@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Location } from '@angular/common'
 import { CVService } from 'src/app/rapi.common/services/cv.service';
 import { AuthService } from 'src/app/rapi.auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-skills',
@@ -12,7 +13,7 @@ export class SkillsComponent implements OnInit {
   public currentSkill: string = ""
   public skills: string[] = []
 
-  constructor(private location: Location, private cv: CVService, private authService: AuthService) {
+  constructor(private location: Location, private cv: CVService, private authService: AuthService, private router: Router) {
     this.skills = this.cv.getSkills()
   }
 
@@ -38,6 +39,7 @@ export class SkillsComponent implements OnInit {
     const userId = this.authService.getUserId();
     this.cv.setSkills(this.skills);
     this.cv.submit(userId).subscribe((res) => {
+      this.router.navigate(['/', 'home', 'dashboard']);
     })
   }
 

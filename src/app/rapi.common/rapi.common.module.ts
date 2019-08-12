@@ -17,6 +17,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { WarnDialogComponent } from './warn-dialog/warn-dialog.component';
 import { RapiDialogService } from './services/dialog.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatIconModule,
     MatStepperModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule,
   ],
   exports: [
       ReactiveFormsModule,
@@ -52,6 +54,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
       MatIconModule,
       MatStepperModule,
       MatCheckboxModule,
+      MatTooltipModule,
 
   ],
   entryComponents: [

@@ -1,0 +1,8 @@
+<div 
+matTooltip="Copy to clickboard"
+matTooltipPosition="after"
+matTooltipShowDelay="700"
+(click)="copy()"
+[ngStyle]="{'border-color': method === 'GET' ? '#66BB6A' : '#ef5350'}" class="endpoint">
+  <span class="method">{{method}}</span><span>{{constructURL()}}</span>
+</div>

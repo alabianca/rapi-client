@@ -7,6 +7,7 @@ import { RecordService } from "./services/record.service";
 import { RecordComponent } from './record/record.component';
 import { RouterModule } from "@angular/router";
 import { NavGuard } from "./guards/nav.guard";
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
     imports: [
@@ -19,6 +20,6 @@ import { NavGuard } from "./guards/nav.guard";
         RouterModule,
         NavGuard,
     ],
-    declarations: [DashboardComponent, RecordComponent],
+    declarations: [DashboardComponent, RecordComponent, ResumeComponent],
 })
 export class RapiDashboardModule{}
